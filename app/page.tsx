@@ -17,9 +17,9 @@ export default function Page() {
       <main id="main">
         <section className="hero" aria-labelledby="hero-heading">
           <div className="hero-copy">
-            <p className="eyebrow"><span className="status-dot" /> AN EXERCISE IN MAKING THINGS</p>
+            <p className="eyebrow"><span className="status-dot" /> A SMALL BEGINNING</p>
             <h1 id="hero-heading">One idea.<br />One page.<br /><span>A first step.</span></h1>
-            <p className="hero-description">A small corner of the internet. A starting point for learning, building, and putting something of your own into the world.</p>
+            <p className="hero-description">A simple idea, brought to life. A place to learn by making—and see where it takes you.</p>
             <a className="primary-link" href="#about">Meet the project <ArrowDown size={17} aria-hidden="true" /></a>
             <p className="hero-footnote">Built with curiosity. Made with v0.</p>
           </div>
