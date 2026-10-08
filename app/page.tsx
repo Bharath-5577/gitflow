@@ -1,47 +1,40 @@
+import { ArrowDown, ArrowUpRight, Asterisk } from 'lucide-react'
+import { ProjectArtwork } from '@/components/project-artwork'
+import { ProjectStory } from '@/components/project-story'
+
 export default function Page() {
   return (
-    <main
-      style={{
-        colorScheme: 'light dark',
-        position: 'relative',
-        display: 'flex',
-        minHeight: '100vh',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: 'light-dark(#fff, #000)',
-        color: 'light-dark(#000, #fff)',
-      }}
-    >
-      <svg
-        aria-hidden="true"
-        style={{ width: 80, height: 80 }}
-        width={80}
-        height={80}
-        fill="none"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-        stroke="currentColor"
-        strokeWidth="0.5"
-      >
-        <path
-          d="M14.2 14.2H17V6.9375C17 4.76288 15.2371 3 13.0625 3H5.8V5.8M14.2 14.2V7.79063L7.79062 14.2H14.2ZM14.2 14.2V17H6.9375C4.76288 17 3 15.2371 3 13.0625V5.8H5.8M5.8 5.8V12.2313L12.2313 5.8H5.8Z"
-          strokeLinejoin="round"
-        />
-      </svg>
-      <p
-        style={{
-          position: 'absolute',
-          left: '50%',
-          top: 'calc(50% + 56px)',
-          transform: 'translateX(-50%)',
-          whiteSpace: 'nowrap',
-          fontSize: '14px',
-          fontWeight: 500,
-          color: 'light-dark(#71717a, #a1a1aa)',
-        }}
-      >
-        Your v0 generation will show here.
-      </p>
-    </main>
+    <div className="site-shell" id="top">
+      <a className="skip-link" href="#main">Skip to content</a>
+      <header className="site-header">
+        <a href="#top" className="wordmark" aria-label="First Site home"><Asterisk aria-hidden="true" strokeWidth={2.5} /> first site<span className="brand-period">.</span></a>
+        <nav aria-label="Main navigation">
+          <a href="#about">The project</a>
+          <a href="#process">The process</a>
+          <a href="#resources" className="nav-cta">Explore the tools <ArrowUpRight aria-hidden="true" size={15} /></a>
+        </nav>
+      </header>
+      <main id="main">
+        <section className="hero" aria-labelledby="hero-heading">
+          <div className="hero-copy">
+            <p className="eyebrow"><span className="status-dot" /> AN EXERCISE IN MAKING THINGS</p>
+            <h1 id="hero-heading">One idea.<br />One page.<br /><span>A first step.</span></h1>
+            <p className="hero-description">A small corner of the internet. A starting point for learning, building, and putting something of your own into the world.</p>
+            <a className="primary-link" href="#about">Meet the project <ArrowDown size={17} aria-hidden="true" /></a>
+            <p className="hero-footnote">Built with curiosity. Made with v0.</p>
+          </div>
+          <ProjectArtwork />
+        </section>
+        <div className="project-meta" aria-label="Project details">
+          <div><span className="meta-label">PROJECT 001</span><span>First Site</span></div>
+          <div><span className="meta-label">THE FORMAT</span><span>One page. Room to grow.</span></div>
+          <div><span className="meta-label">THE APPROACH</span><span>Learn by making</span></div>
+          <a href="#about" aria-label="Scroll to the project"><ArrowDown size={20} /></a>
+        </div>
+        <ProjectStory />
+      </main>
+      <footer className="site-footer"><a href="#top" className="wordmark"><Asterisk aria-hidden="true" size={20} /> first site.</a><p>Every project starts somewhere. This one starts here.</p><a href="#top">Back to top <ArrowUpRight size={15} aria-hidden="true" /></a></footer>
+    </div>
   )
 }
+
