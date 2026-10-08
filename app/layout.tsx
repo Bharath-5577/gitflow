@@ -1,10 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { SiteFrame } from '@/components/site-frame'
 
 export const metadata: Metadata = {
-  title: 'First Site — One idea. One page. A first step.',
-  description: 'A small web project about learning by making. From an idea to a first website with v0, and a next chapter with GitHub.',
+  title: 'First Site — Small steps. Real possibilities.',
+  description: 'A friendly place to start making for the web. Explore practical guides, discover our approach, and find clear answers to your questions.',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light">
       <body className="antialiased">
-        {children}
+        <SiteFrame>{children}</SiteFrame>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -1,40 +1,6 @@
-import { ArrowDown, ArrowUpRight, Asterisk } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Compass, BookOpen, MessageCircle, Check } from 'lucide-react'
 import { ProjectArtwork } from '@/components/project-artwork'
-import { ProjectStory } from '@/components/project-story'
 
-export default function Page() {
-  return (
-    <div className="site-shell" id="top">
-      <a className="skip-link" href="#main">Skip to content</a>
-      <header className="site-header">
-        <a href="#top" className="wordmark" aria-label="First Site home"><Asterisk aria-hidden="true" strokeWidth={2.5} /> first site<span className="brand-period">.</span></a>
-        <nav aria-label="Main navigation">
-          <a href="#about">The project</a>
-          <a href="#process">The process</a>
-          <a href="#resources" className="nav-cta">Explore the tools <ArrowUpRight aria-hidden="true" size={15} /></a>
-        </nav>
-      </header>
-      <main id="main">
-        <section className="hero" aria-labelledby="hero-heading">
-          <div className="hero-copy">
-            <p className="eyebrow"><span className="status-dot" /> A SMALL BEGINNING</p>
-            <h1 id="hero-heading">One idea.<br />One page.<br /><span>A first step.</span></h1>
-            <p className="hero-description">A simple idea, brought to life. A place to learn by making—and see where it takes you.</p>
-            <a className="primary-link" href="#about">Meet the project <ArrowDown size={17} aria-hidden="true" /></a>
-            <p className="hero-footnote">Built with curiosity. Made with v0.</p>
-          </div>
-          <ProjectArtwork />
-        </section>
-        <div className="project-meta" aria-label="Project details">
-          <div><span className="meta-label">PROJECT 001</span><span>First Site</span></div>
-          <div><span className="meta-label">THE FORMAT</span><span>One page. Room to grow.</span></div>
-          <div><span className="meta-label">THE APPROACH</span><span>Learn by making</span></div>
-          <a href="#about" aria-label="Scroll to the project"><ArrowDown size={20} /></a>
-        </div>
-        <ProjectStory />
-      </main>
-      <footer className="site-footer"><a href="#top" className="wordmark"><Asterisk aria-hidden="true" size={20} /> first site.</a><p>Every project starts somewhere. This one starts here.</p><a href="#top">Back to top <ArrowUpRight size={15} aria-hidden="true" /></a></footer>
-    </div>
-  )
-}
-
+const destinations = [ {href:'/about', icon:Compass, label:'Get to know First Site', text:'A little about the idea, the approach, and why we believe in starting small.', number:'01'}, {href:'/guides', icon:BookOpen, label:'Find your next step', text:'Straightforward guides to help you plan, build, and share your first website.', number:'02'}, {href:'/help', icon:MessageCircle, label:'Get a clear answer', text:'No confusing jargon. Find answers to the questions that come up along the way.', number:'03'} ]
+export default function Page() { return <><section className="hero fresh-hero"><div><p className="eyebrow"><span className="status-dot" /> YOUR NEXT CHAPTER STARTS HERE</p><h1>Big ideas.<br />Small steps.<br /><span>Your first site.</span></h1><p className="hero-description">A friendly place to turn “what if” into something real. Explore, learn, and make your little corner of the internet.</p><div className="hero-actions"><Link className="primary-link" href="/guides">Find your first step <ArrowRight size={17} /></Link><Link className="quiet-link" href="/about">Get to know us</Link></div><p className="reassurance"><Check size={14} /> Beginner-friendly <span>•</span> Go at your own pace</p></div><ProjectArtwork /></section><section className="welcome-strip"><span>A little direction goes a long way.</span><p>No pressure to know everything. Just a place to begin.</p></section><section className="discovery-section"><div className="section-heading"><div><p className="eyebrow">MAKE YOURSELF AT HOME</p><h2>Where would you like to start?</h2></div><p>Good things start with a little curiosity.</p></div><div className="discovery-grid">{destinations.map(({href,icon:Icon,label,text,number})=><Link href={href} className="discovery-card" key={href}><div className="card-top"><Icon size={24} strokeWidth={1.5} /><span>{number}</span></div><h3>{label}</h3><p>{text}</p><span className="card-link">Explore <ArrowRight size={17} /></span></Link>)}</div></section><section className="closing-panel"><div><p className="eyebrow">YOU DON’T NEED A PERFECT PLAN</p><h2>Just a little curiosity.</h2><p>Pick a guide. Try something. Make it your own.</p></div><Link className="primary-link" href="/guides">Let’s get started <ArrowRight size={17} /></Link></section></> }
